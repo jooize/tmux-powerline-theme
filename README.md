@@ -53,7 +53,7 @@ You can also specify preference in your shell before starting Tmux.
 
 ### Attach Tmux on device without Powerline font
 Write these lines to a file (`~/Executables/AttachTmuxPhone.sh`), `chmod +x` it
-and specify its location as command to run on connect in your SSH client.
+and (optionally) specify its location as command to run on connect in your SSH client.
 
     #!/bin/sh
     
