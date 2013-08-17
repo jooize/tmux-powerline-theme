@@ -1,7 +1,7 @@
 Tmux Powerline theme
 ====================
 
-## Environment variable options (TMUX_POWERLINE_SYMBOLS)
+## Environment variable options
 
     "powerline"      If you have a new Powerline font. (January 2013 or later)
 
@@ -12,10 +12,14 @@ Tmux Powerline theme
 
     "ascii"          If you don't have a patched font or Unicode support.
 
-## Enabling powerline symbols
+## Enabling Powerline symbols
 Enable Powerline symbols by putting the following in your .tmux.conf before the line loading this theme.
 
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
+
+You can also export it in your shell before (re)loading the theme.
+
+    $ export TMUX_POWERLINE_SYMBOLS="powerline"
 
 ## Switching symbols
 To switch between symbols, set the environment variable and reload the theme.
