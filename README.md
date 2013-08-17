@@ -13,11 +13,12 @@ Tmux Powerline theme
     "ascii"          If you don't have a patched font or Unicode support.
 
 ## Enabling Powerline symbols
-Enable Powerline symbols by putting the following in your .tmux.conf before the line loading this theme.
+Put the following in your `.tmux.conf` before the line loading this theme.
 
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
 
-You can also export it in your shell before (re)loading the theme.
+You can also specify your preference in your shell before starting Tmux.
+Note that the server must not be running for this to work.
 
     $ export TMUX_POWERLINE_SYMBOLS="powerline"
 
