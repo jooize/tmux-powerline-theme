@@ -1,16 +1,16 @@
-TMUX_POWERLINE_SYMBOLS
-======================
+Tmux Powerline theme
+====================
 
-## Environment variable options
+## Environment variable options (TMUX_POWERLINE_SYMBOLS)
 
-    "powerline"     If you have a new Powerline font (January 2013 or later)
+    "powerline"      If you have a new Powerline font. (January 2013 or later)
 
-    "vim-powerline" If you have an older font from the now deprecated
-                    Lokaltog/vim-powerline project.
+    "vim-powerline"  If you have an older font from the now deprecated
+                     Lokaltog/vim-powerline project.
 
-    "unicode"       If you don't have a patched font. (default)
+    "unicode"        If you don't have a patched font. (default)
 
-    "ascii"         If you don't have a patched font or Unicode support.
+    "ascii"          If you don't have a patched font or Unicode support.
 
 ## Enabling powerline symbols
 Enable Powerline symbols by putting the following in your .tmux.conf before the line loading this theme.
@@ -33,3 +33,4 @@ Add these lines to your .tmux.conf, replacing the bracketed keys with your prefe
 
     bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
     bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+
