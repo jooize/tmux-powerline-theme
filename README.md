@@ -1,7 +1,13 @@
 Tmux Powerline theme
 ====================
 
-## Environment variable options
+## Installation
+Put the following in your `.tmux.conf`:
+
+    source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
+
+## Alternative Powerline symbols
 
     "powerline"      If you have a new Powerline font. (January 2013 or later)
 
@@ -11,16 +17,6 @@ Tmux Powerline theme
     "unicode"        If you don't have a patched font. (default)
 
     "ascii"          If you don't have a patched font or Unicode support.
-
-## Enable Powerline symbols
-Put the following in your `.tmux.conf` before the line loading this theme.
-
-    if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
-
-You can also specify your preference in your shell before starting Tmux.
-Note that the server must not be running for this to work.
-
-    $ export TMUX_POWERLINE_SYMBOLS="powerline"
 
 ## Switch symbols
 To switch between symbols, set the environment variable and reload the theme.
@@ -39,3 +35,9 @@ Add these lines to your .tmux.conf, replacing the bracketed keys with your prefe
     bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
     bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
+## Specify symbols in shell
+You can also specify preference in your shell before starting Tmux.
+
+    $ export TMUX_POWERLINE_SYMBOLS="powerline"
+
+**Note: The Tmux server can't be running for this to work.**
