@@ -11,7 +11,7 @@ want to (or can't) use fancy symbols.
     # Load Powerline theme
     source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-## List of Powerline symbols
+### List of Powerline symbols
 
     "powerline"      If you have a new Powerline font. (January 2013 or later)
 
@@ -22,23 +22,23 @@ want to (or can't) use fancy symbols.
 
     "ascii"          If you don't have a patched font or Unicode support.
 
-## Use toggle key for symbols (recommended)
-Switch symbols with Tmux key bindings by putting this in your `.tmux.conf`
+### Use toggle key for symbols (recommended)
+Switch symbols with `^B P` by putting this in your `.tmux.conf`.
 
     bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
 
-## Use enable and disable keys for symbols
-Add these lines to your `.tmux.conf`, replacing the bracketed keys with your preferred enable/disable keys
+### Use enable and disable keys for symbols
+Add these lines to your `.tmux.conf` and replace the brackets with your preferred keys.
 
     bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
     bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-## Switch symbols manually while Tmux is running
+### Switch symbols manually while Tmux is running
 
     $ tmux set-environment -g TMUX_POWERLINE_SYMBOLS "vim-powerline"
     $ tmux source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-## Specify symbols in shell
+### Specify symbols in shell
 You can also specify preference in your shell before starting Tmux.  
 *Note: Must be done before Tmux is started or it won't have effect.*
 
