@@ -20,10 +20,9 @@ Put the following in your `.tmux.conf` to use the recommended configuration.
 ## List of Powerline symbols
 
 | Option          | Explanation
-| --------------- | ----------------------------------------------------------
+| --------------- | -----------
 | "powerline"     | If you have a new Powerline font. (January 2013 or later)
-| "vim-powerline" | If you have an older font from the now deprecated
-                    Lokaltog/vim-powerline project.
+| "vim-powerline" | If you have an older font from the now deprecated Lokaltog/vim-powerline project.
 | "unicode"       | If you don't have a patched font. (default)
 | "ascii"         | If you don't have a patched font or Unicode support.
 
