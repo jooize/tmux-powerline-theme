@@ -1,7 +1,7 @@
 Tmux Powerline theme
 ====================
 
-## Screenshots
+## Screenshot
 ![Tmux with tmux-powerline-theme in PuTTY](https://i.imgur.com/q8kmn.png)
 
 ## Environment variable options
