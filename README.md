@@ -1,43 +1,63 @@
 Tmux Powerline theme
 ====================
 
-## Screenshot
-![Tmux with tmux-powerline-theme in PuTTY](https://i.imgur.com/q8kmn.png)
+## Installation
+Put the following in your `.tmux.conf` to use the recommended configuration.
 
-## Environment variable options
-
-    "powerline"      If you have a new Powerline font. (January 2013 or later)
-
-    "vim-powerline"  If you have an older font from the now deprecated
-                     Lokaltog/vim-powerline project.
-
-    "unicode"        If you don't have a patched font. (default)
-
-    "ascii"          If you don't have a patched font or Unicode support.
-
-## Enabling Powerline symbols
-Enable Powerline symbols by putting the following in your .tmux.conf before the line loading this theme.
-
+    #
+    # Powerline theme
+    #
+    
+    # Enable Powerline symbols
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
+    
+    # Toggle between Powerline and Unicode symbols
+    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "vim-powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
+    
+    # Load Powerline theme
+    source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-You can also export it in your shell before (re)loading the theme.
+## List of Powerline symbols
 
-    $ export TMUX_POWERLINE_SYMBOLS="powerline"
+| Option          | Explanation
+| --------------- | -----------
+| "powerline"     | If you have a new Powerline font. (January 2013 or later)
+| "vim-powerline" | If you have an older font from the now deprecated Lokaltog/vim-powerline project.
+| "unicode"       | If you don't have a patched font. (default)
+| "ascii"         | If you don't have a patched font or Unicode support.
 
-## Switching symbols
-To switch between symbols, set the environment variable and reload the theme.
+## Suggestions
+
+### Use toggle key for symbols
+Switch between two sets of symbols with `^B P` by putting this in your `.tmux.conf`.
+
+    # Toggle between Unicode and new Powerline symbols
+    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
+
+### Use enable/disable keys for symbols
+Add these lines to your `.tmux.conf` and replace the brackets with your preferred keys.
+
+    bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+
+### Change symbols manually while Tmux is running
 
     $ tmux set-environment -g TMUX_POWERLINE_SYMBOLS "vim-powerline"
     $ tmux source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-## Toggle key for switching symbols
-Switch symbols with Tmux key bindings by putting this in your .tmux.conf
+### Specify symbols in shell
+You can also specify preference in your shell before starting Tmux.  
+*Note: Must be done before Tmux is started or it won't have effect.*
 
-    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
+    $ export TMUX_POWERLINE_SYMBOLS="powerline"
 
-## Enable and disable keys for switching symbols
-Add these lines to your .tmux.conf, replacing the bracketed keys with your preferred enable/disable keys
+### Attach Tmux on device without Powerline font
+Write these lines to a file (`~/Executables/AttachTmuxPhone.sh`), `chmod +x` it
+and (optionally) specify its location as command to run on connect in your SSH client.
 
-    bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
-    bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    #!/bin/sh
+    
+    tmux set-environment -g TMUX_POWERLINE_SYMBOLS "unicode"
+    tmux source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    tmux attach
 
