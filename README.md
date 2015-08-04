@@ -2,10 +2,10 @@ Tmux Powerline theme
 ====================
 
 * Gracefully degrades with terminal color support (256 → 2).
-* Compatible with the new and old Powerline fonts, and will work with UTF-8 or ASCII.
+* Compatible with the new and old Powerline fonts, and can use UTF-8 or ASCII symbols.
 
 ## Installation
-Put the following in your `.tmux.conf` to use the recommended configuration.
+Put the following in your `~/.tmux.conf` to use the recommended configuration.
 
     #
     # Powerline theme
@@ -20,8 +20,8 @@ Put the following in your `.tmux.conf` to use the recommended configuration.
     # Load Powerline theme
     source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-If you don't want to use the Powerline symbols, skip the first two and only load
-the theme (assumes UTF-8 support).
+*If you don't want to use the Powerline symbols, skip the first two and only load
+the theme (assumes UTF-8 support).*
 
 ## List of Powerline symbols
 
