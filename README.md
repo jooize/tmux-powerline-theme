@@ -20,7 +20,7 @@ Put the following in your `~/.tmux.conf` to use the recommended configuration.
     # Load Powerline theme
     source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
 
-*If you don't want to use the Powerline symbols, skip the first two and only load
+*If you don't want Powerline symbols, skip the first two and only load
 the theme (assumes UTF-8 support).*
 
 ## List of Powerline symbols
