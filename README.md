@@ -1,6 +1,9 @@
 Tmux Powerline theme
 ====================
 
+* Gracefully degrades with terminal color support (256 → 2).
+* Compatible with the new and old Powerline fonts, and will work with UTF-8 or ASCII.
+
 ## Installation
 Put the following in your `.tmux.conf` to use the recommended configuration.
 
@@ -8,14 +11,17 @@ Put the following in your `.tmux.conf` to use the recommended configuration.
     # Powerline theme
     #
     
-    # Enable Powerline symbols
+    # Enable Powerline symbols (unless already specified otherwise in environment)
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
     
-    # Toggle between Powerline and Unicode symbols
-    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "vim-powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
+    # Toggle between Powerline and Unicode symbols with `^B P`
+    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
     
     # Load Powerline theme
     source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+
+If you don't want to use the Powerline symbols, skip the first two and only load
+the theme (requires UTF-8 support).
 
 ## List of Powerline symbols
 
@@ -44,6 +50,8 @@ Add these lines to your `.tmux.conf` and replace the brackets with your preferre
 
     $ tmux set-environment -g TMUX_POWERLINE_SYMBOLS "vim-powerline"
     $ tmux source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+
+Or replace `$ tmux` with `^B :` to use Tmux's command line.
 
 ### Specify symbols in shell
 You can also specify preference in your shell before starting Tmux.  
