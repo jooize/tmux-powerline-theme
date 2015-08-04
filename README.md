@@ -14,7 +14,7 @@ Put the following in your `~/.tmux.conf` to use the recommended configuration.
     # Enable Powerline symbols (unless already specified otherwise in environment)
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
     
-    # Toggle between Powerline and UTF-8 symbols with `^B P`
+    # Toggle between Powerline and UTF-8 symbols with ^B P
     bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "utf-8"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "utf-8" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
     
     # Load Powerline theme
