@@ -5,7 +5,12 @@ Tmux Powerline theme
 * Compatible with the new and old Powerline fonts, and can use Unicode or ASCII symbols.
 
 ## Installation
-Put the following in your `~/.tmux.conf` to use the recommended configuration.
+
+Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) and add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`, then hit `^B I` (Tmux prefix + capital i).
+
+### Enable Powerline symbols (optional)
+
+*If you don't want Powerline symbols, only load the theme (assumes Unicode support).*
 
     #
     # Powerline theme
@@ -15,15 +20,7 @@ Put the following in your `~/.tmux.conf` to use the recommended configuration.
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
     
     # Toggle between Powerline and Unicode symbols with ^B P
-    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
-    
-    # Load Powerline theme
-    source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
-
-*If you don't want Powerline symbols, only load the theme (assumes Unicode support).*
-
-    # Powerline theme
-    source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"'
 
 ## List of Powerline symbols
 
@@ -34,24 +31,35 @@ Put the following in your `~/.tmux.conf` to use the recommended configuration.
 | "unicode"       | If you don't have a patched font. *(default)*
 | "ascii"         | If you don't have a patched font or Unicode support.
 
+## Compact mode
+
+Make current window compact: `$ export TMUX_POWERLINE_COMPACT_CURRENT=on`
+
+    # Make inactive (other) windows compact
+    $ export TMUX_POWERLINE_COMPACT_INACTIVE=on
+
+Make all windows compact
+
+    $ export TMUX_POWERLINE_COMPACT=on
+
 ## Suggestions
 
 ### Use toggle key for symbols
 Switch between two sets of symbols with `^B P` by putting this in your `.tmux.conf`.
 
     # Toggle between Unicode and new Powerline symbols
-    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"'
+    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"'
 
 ### Use enable/disable keys for symbols
 Add these lines to your `.tmux.conf` and replace the brackets with your preferred keys.
 
-    bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
-    bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    bind-key <enable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" \; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"
+    bind-key <disable_key> set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" \; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"
 
 ### Change symbols manually while Tmux is running
 
-    $ tmux set-environment -g TMUX_POWERLINE_SYMBOLS "vim-powerline"
-    $ tmux source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    $ tmux set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"
+    $ tmux run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"
 
 Or replace `$ tmux` with `^B :` to use Tmux's command line.
 
@@ -68,6 +76,6 @@ and (optionally) specify its location as command to run on connect in your SSH c
     #!/bin/sh
     
     tmux set-environment -g TMUX_POWERLINE_SYMBOLS "unicode"
-    tmux source-file "$HOME/.tmux/powerline-theme/powerline-theme.conf"
+    tmux run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"
     tmux attach
 
