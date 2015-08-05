@@ -6,7 +6,9 @@ Tmux Powerline theme
 
 ## Installation
 
-Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) and add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`, then hit `^B I` (Tmux prefix + capital i).
+1. Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm).
+2. Add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`.
+3. Hit `^B I` inside Tmux to have TPM install it.
 
 ### Enable Powerline symbols (optional)
 
