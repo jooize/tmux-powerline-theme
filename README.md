@@ -1,5 +1,11 @@
-Tmux Powerline theme
+Tmux Powerline theme (deprecated, use TPM version)
 ====================
+
+## Deprecated
+
+**Please don't use this version.** It employs an ugly file write/deletion to work around a race condition in Tmux. Can cause an infinite loop freezing Tmux and eating CPU.
+
+## Information
 
 * Gracefully degrades with terminal color support (256 → 2).
 * Compatible with the new and old Powerline fonts, and can use Unicode or ASCII symbols.
