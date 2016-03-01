@@ -1,14 +1,28 @@
 Tmux Powerline theme
 ====================
 
+Rewritten with support for [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (optional), and avoids an ugly race condition workaround used in the [previous version](https://github.com/jooize/tmux-powerline-theme/tree/native).
+
 * Gracefully degrades with terminal color support (256 → 2).
 * Compatible with the new and old Powerline fonts, and can use Unicode or ASCII symbols.
 
 ## Install
 
+### Tmux Plugin Manager (TPM)
+
 1. Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm).
 2. Add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`.
 3. Hit `^B I` inside Tmux to have TPM install it.
+
+### Load from shell
+
+1. Run in a shell: `source tmux-powerline-theme.tmux`
+
+### Manual install in `tmux.conf`
+
+1. Put in your `tmux.conf`: `run-shell "$HOME/.tmux/tmux-powerline-theme/tmux-powerline-theme.tmux"`
+
+## Configure
 
 ### Enable Powerline symbols (optional)
 
@@ -24,7 +38,7 @@ Tmux Powerline theme
     # Toggle between Powerline and Unicode symbols with ^B P
     bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"'
 
-## List of Powerline symbols
+### List of Powerline symbols
 
 | Option          | Explanation
 | --------------- | -----------
@@ -33,7 +47,7 @@ Tmux Powerline theme
 | "unicode"       | If you don't have a patched font. *(default)*
 | "ascii"         | If you don't have a patched font or Unicode support.
 
-## Compact mode
+### Compact mode
 
 Make current window compact: `$ export TMUX_POWERLINE_COMPACT_CURRENT=on`
 
