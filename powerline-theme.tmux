@@ -212,7 +212,7 @@ tmux set-window-option -g window-status-bell-bg red # Red is urgent
 tmux set-window-option -g window-status-bell-fg black
 
 #
-# Status bar window with content found (monitor-content)
+# Status bar window with content found (monitor-content) (Tmux <2.0)
 #
 
 tmux set-window-option -g window-status-content-attr bold #,underscore
