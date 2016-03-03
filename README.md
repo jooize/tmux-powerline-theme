@@ -1,10 +1,16 @@
 Tmux Powerline theme
 ====================
 
-Rewritten with support for [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (optional), and avoids an ugly race condition workaround used in the [previous version](https://github.com/jooize/tmux-powerline-theme/tree/native).
+(March 2016) Rewritten with support for [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (optional), and avoids an ugly race condition workaround used in the [previous version](https://github.com/jooize/tmux-powerline-theme/tree/native). Upgrade!
 
-* Gracefully degrades with terminal color support (256 → 2).
-* Compatible with the new and old Powerline fonts, and can use Unicode or ASCII symbols.
+## Features
+
+- Gracefully degrades with terminal color support (256 → 16 → 2).
+- Supports new and old Powerline glyphs.
+
+## Issues
+
+- Doesn't check Tmux version before executing commands, resulting in error messages at startup. (#2)
 
 ## Install
 
@@ -12,21 +18,23 @@ Rewritten with support for [Tmux Plugin Manager](https://github.com/tmux-plugins
 
 1. Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm).
 2. Add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`.
-3. Hit `^B I` inside Tmux to have TPM install it.
+3. Hit `^B I` inside Tmux to make TPM install it.
 
 ### Load from shell
 
-1. Run in a shell: `source tmux-powerline-theme.tmux`
+1. Save `powerline-theme.tmux` somewhere.
+2. Run in a shell: `source powerline-theme.tmux`
 
 ### Manual install in `tmux.conf`
 
-1. Put in your `tmux.conf`: `run-shell "$HOME/.tmux/tmux-powerline-theme/tmux-powerline-theme.tmux"`
+1. Save `powerline-theme.tmux` to `$HOME/.tmux/tmux-powerline-theme/powerline-theme.tmux`
+2. Put in your `tmux.conf`: `run-shell "$HOME/.tmux/tmux-powerline-theme/powerline-theme.tmux"`
 
 ## Configure
 
 ### Enable Powerline symbols (optional)
 
-*If you don't want Powerline symbols, only load the theme (assumes Unicode support).*
+*If you don't want Powerline symbols, only load the theme.*
 
     #
     # Powerline theme
@@ -36,27 +44,38 @@ Rewritten with support for [Tmux Plugin Manager](https://github.com/tmux-plugins
     if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
     
     # Toggle between Powerline and Unicode symbols with ^B P
-    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/powerline-theme/powerline-theme.tmux"'
+    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/plugins/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"'
 
 ### List of Powerline symbols
 
 | Option          | Explanation
 | --------------- | -----------
 | "powerline"     | If you have a new Powerline font. (January 2013 or later)
-| "vim-powerline" | If you have an older font from the now deprecated Lokaltog/vim-powerline project.
+| "vim-powerline" | If you have an older font from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
 | "unicode"       | If you don't have a patched font. *(default)*
 | "ascii"         | If you don't have a patched font or Unicode support.
 
+*Both `unicode` and `ascii` effectively mean no symbols at this time.*
+
 ### Compact mode
 
-Make current window compact: `$ export TMUX_POWERLINE_COMPACT_CURRENT=on`
+#### Make current window compact
 
-    # Make inactive (other) windows compact
-    $ export TMUX_POWERLINE_COMPACT_INACTIVE=on
+```sh
+export TMUX_POWERLINE_COMPACT_CURRENT=on
+```
 
-Make all windows compact
+#### Make inactive (other) windows compact
 
-    $ export TMUX_POWERLINE_COMPACT=on
+```sh
+export TMUX_POWERLINE_COMPACT_INACTIVE=on
+```
+
+#### Make all windows compact
+
+```sh
+export TMUX_POWERLINE_COMPACT=on
+```
 
 ## Suggestions
 
