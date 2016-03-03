@@ -30,12 +30,19 @@ case "$TMUX_POWERLINE_SYMBOLS" in
         tmux_powerline_symbol_left_full=""
         tmux_powerline_symbol_left_thin="│"
         ;;
-    ascii | * )
+    ascii )
         # ASCII glyphs which don't require patched font or Unicode support
         tmux_powerline_symbol_right_full=""
         tmux_powerline_symbol_right_thin="|"
         tmux_powerline_symbol_left_full=""
         tmux_powerline_symbol_left_thin="|"
+        ;;
+    none | * )
+        # No symbols.
+        tmux_powerline_symbol_right_full=""
+        tmux_powerline_symbol_right_thin=""
+        tmux_powerline_symbol_left_full=""
+        tmux_powerline_symbol_left_thin=""
 esac
 
 #
