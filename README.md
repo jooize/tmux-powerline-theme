@@ -42,15 +42,17 @@ $HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux
 
 *If you don't want Powerline symbols, only load the theme.*
 
-    #
-    # Powerline theme
-    #
-    
-    # Enable Powerline symbols (unless already specified otherwise in environment)
-    if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
-    
-    # Toggle between Powerline and Unicode symbols with ^B P
-    bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/plugins/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"'
+```tmux
+#
+# Powerline theme
+#
+
+# Enable Powerline symbols (unless already specified otherwise in environment)
+if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline"'
+
+# Toggle between Powerline and Unicode symbols with ^B P
+bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/plugins/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"'
+```
 
 ### List of Powerline symbols
 
@@ -65,6 +67,8 @@ $HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux
 *Both `unicode` and `ascii` effectively mean no symbols at this time.*
 
 ### Compact mode
+
+Environment variables. Run in shell.
 
 #### Make current window compact
 
