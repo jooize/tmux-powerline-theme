@@ -32,7 +32,11 @@ Tmux Powerline theme
 
 ## Configure
 
-All paths assume installation by Tmux Plugin Manager: `$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux`
+All paths assume installation by Tmux Plugin Manager.
+
+```
+$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux
+```
 
 ### Enable Powerline symbols (optional)
 
