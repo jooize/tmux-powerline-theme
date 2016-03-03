@@ -52,10 +52,11 @@ All paths assume installation by Tmux Plugin Manager: `$HOME/.tmux/plugins/tmux-
 
 | Option          | Explanation
 | --------------- | -----------
-| `powerline`     | If you have a new Powerline font. (January 2013 or later)
-| `vim-powerline` | If you have an older font from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
-| `unicode`       | If you don't have a patched font. *(default)*
-| `ascii`         | If you don't have a patched font or Unicode support.
+| `powerline`     | Use the new Powerline font. (January 2013 or later)
+| `vim-powerline` | Use the old Powerline font from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
+| `unicode`       | Use Unicode symbols. *(default)*
+| `ascii`         | Use ASCII symbols.
+| `none`          | No symbols.
 
 *Both `unicode` and `ascii` effectively mean no symbols at this time.*
 
