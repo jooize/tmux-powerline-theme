@@ -10,7 +10,7 @@ Tmux Powerline theme
 
 ## Issues
 
-- Doesn't check Tmux version before executing commands, resulting in error messages at startup. (#2)
+- Doesn't check Tmux version before executing commands, resulting in error messages at startup. ([#2](https://github.com/jooize/tmux-powerline-theme/issues/2))
 
 ## Install
 
@@ -50,10 +50,10 @@ Tmux Powerline theme
 
 | Option          | Explanation
 | --------------- | -----------
-| "powerline"     | If you have a new Powerline font. (January 2013 or later)
-| "vim-powerline" | If you have an older font from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
-| "unicode"       | If you don't have a patched font. *(default)*
-| "ascii"         | If you don't have a patched font or Unicode support.
+| `powerline`     | If you have a new Powerline font. (January 2013 or later)
+| `vim-powerline` | If you have an older font from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
+| `unicode`       | If you don't have a patched font. *(default)*
+| `ascii`         | If you don't have a patched font or Unicode support.
 
 *Both `unicode` and `ascii` effectively mean no symbols at this time.*
 
