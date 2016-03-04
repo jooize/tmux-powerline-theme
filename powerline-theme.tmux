@@ -68,10 +68,10 @@ disable_flag()
 # Support `tput Co` too?
 colors="$(tput colors)"
 
-if [ "${TMUX_POWERLINE_SHOW_FLAG}" = "on" ]; then
+if [ "${TMUX_POWERLINE_FLAG}" = "on" ]; then
     # Force enable flag
     enable_flag
-elif [ "${TMUX_POWERLINE_SHOW_FLAG}" = "off" ]; then
+elif [ "${TMUX_POWERLINE_FLAG}" = "off" ]; then
     # Force disable flag
     disable_flag
 else
