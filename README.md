@@ -1,6 +1,8 @@
 Tmux Powerline theme
 ====================
 
+![](https://i.imgur.com/oqLvFf7.gif)
+
 (March 2016) Rewritten with support for [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (optional), and avoids an ugly race condition workaround used in the [previous version](https://github.com/jooize/tmux-powerline-theme/tree/native). Upgrade!
 
 ## Features
