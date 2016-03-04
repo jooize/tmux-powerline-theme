@@ -17,7 +17,7 @@ Tmux Powerline theme
 ### Tmux Plugin Manager (TPM)
 
 1. Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm).
-2. Add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`.
+2. Add to your `.tmux.conf`: `set -g @plugin 'jooize/tmux-powerline-theme'`
 3. Hit `^B I` inside Tmux to make TPM install it.
 
 ### Load from shell
@@ -68,7 +68,7 @@ bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-
 
 ### Compact mode
 
-Environment variables. Run in shell.
+Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply. The specific options currently overrule whatever `TMUX_POWERLINE_COMPACT` is set to.
 
 #### Make current window compact
 
