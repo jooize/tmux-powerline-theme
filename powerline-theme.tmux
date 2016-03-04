@@ -128,7 +128,7 @@ tmux set-window-option -g window-status-current-fg black
 # Status bar window in background (not active)
 #
 
-if [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "on" ]; then
+if [ "${TMUX_POWERLINE_COMPACT_OTHER}" = "on" ]; then
     tmux set-window-option -g window-status-format "#[fg=colour236,nounderscore]${tmux_powerline_symbol_right_full}#[default,bold,nounderscore] #I${tmux_powerline_flag} #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
 else
     tmux set-window-option -g window-status-format "#[fg=colour236,nounderscore]${tmux_powerline_symbol_right_full}#[default,bold,nounderscore] #I${tmux_powerline_flag} #[fg=colour240,reverse]${tmux_powerline_symbol_right_full}#[default]#[bg=colour240]#[nounderscore] #[default]#[fg=colour231,bg=colour240]#W#[nounderscore] #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"

@@ -76,10 +76,10 @@ Environment variables. Run in shell either before starting Tmux or execute `powe
 export TMUX_POWERLINE_COMPACT_CURRENT=on
 ```
 
-#### Make inactive (other) windows compact
+#### Make other (non-current) windows compact
 
 ```sh
-export TMUX_POWERLINE_COMPACT_INACTIVE=on
+export TMUX_POWERLINE_COMPACT_OTHER=on
 ```
 
 #### Make all windows compact
