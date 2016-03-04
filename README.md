@@ -5,8 +5,8 @@ Tmux Powerline theme
 
 ## Features
 
-- Gracefully degrades with terminal color support (256 → 16 → 2).
-- Supports new and old Powerline glyphs.
+- Colors chosen to degrade gracefully (256 → 16 → 2), and shows flag automatically if initialised with fewer than 16 colors supported.
+- Supports new and old Powerline glyphs, but defaults to no special symbols.
 
 ## Issues
 
