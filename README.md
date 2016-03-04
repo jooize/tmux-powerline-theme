@@ -84,6 +84,12 @@ export TMUX_POWERLINE_COMPACT_CURRENT=on
 export TMUX_POWERLINE_COMPACT_OTHER=on
 ```
 
+### Flag
+
+```sh
+export TMUX_POWERLINE_FLAG=on
+```
+
 ## Suggestions
 
 ### Use toggle key for symbols
