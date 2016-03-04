@@ -68,7 +68,7 @@ bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-
 
 ### Compact mode
 
-Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply. The specific options currently overrule whatever `TMUX_POWERLINE_COMPACT` is set to.
+Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply.
 
 #### Make current window compact
 
@@ -80,12 +80,6 @@ export TMUX_POWERLINE_COMPACT_CURRENT=on
 
 ```sh
 export TMUX_POWERLINE_COMPACT_OTHER=on
-```
-
-#### Make all windows compact
-
-```sh
-export TMUX_POWERLINE_COMPACT=on
 ```
 
 ## Suggestions
