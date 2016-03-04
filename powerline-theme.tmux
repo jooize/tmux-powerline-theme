@@ -88,48 +88,19 @@ fi
 # Compact mode
 #
 
-# $TMUX_POWERLINE_COMPACT = on|off
 # $TMUX_POWERLINE_COMPACT_CURRENT = on|off
 # $TMUX_POWERLINE_COMPACT_INACTIVE = on|off
 
-enable_compact_current()
-{
-    tmux_powerline_compact_current="on"
-}
-
-disable_compact_current()
-{
-    tmux_powerline_compact_current="off"
-}
-
-enable_compact_inactive()
-{
-    tmux_powerline_compact_inactive="on"
-}
-
-disable_compact_inactive()
-{
-    tmux_powerline_compact_inactive="off"
-}
-
-if [ "${TMUX_POWERLINE_COMPACT}" = "on" ]; then
-    enable_compact_current
-    enable_compact_inactive
-elif [ "${TMUX_POWERLINE_COMPACT}" = "off" ]; then
-    disable_compact_current
-    disable_compact_inactive
-fi
-
 if [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "on" ]; then
-    enable_compact_current
+    tmux_powerline_compact_current="on"
 elif [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "off" ]; then
-    disable_compact_current
+    tmux_powerline_compact_current="off"
 fi
 
 if [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "on" ]; then
-    enable_compact_inactive
+    tmux_powerline_compact_inactive="on"
 elif [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "off" ]; then
-    disable_compact_inactive
+    tmux_powerline_compact_inactive="off"
 fi
 
 #
