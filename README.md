@@ -5,8 +5,8 @@ Tmux Powerline theme
 
 ## Features
 
-- Gracefully degrades with terminal color support (256 → 16 → 2).
-- Supports new and old Powerline glyphs.
+- Colors chosen to degrade gracefully (256 → 16 → 2), and shows flag automatically if initialised with fewer than 16 colors supported.
+- Supports new and old Powerline glyphs, but defaults to no special symbols.
 
 ## Issues
 
@@ -17,7 +17,7 @@ Tmux Powerline theme
 ### Tmux Plugin Manager (TPM)
 
 1. Use [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm).
-2. Add `set -g @plugin 'jooize/tmux-powerline-theme'` to your `~/.tmux.conf`.
+2. Add to your `.tmux.conf`: `set -g @plugin 'jooize/tmux-powerline-theme'`
 3. Hit `^B I` inside Tmux to make TPM install it.
 
 ### Load from shell
@@ -68,7 +68,7 @@ bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-
 
 ### Compact mode
 
-Environment variables. Run in shell.
+Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply.
 
 #### Make current window compact
 
@@ -76,16 +76,10 @@ Environment variables. Run in shell.
 export TMUX_POWERLINE_COMPACT_CURRENT=on
 ```
 
-#### Make inactive (other) windows compact
+#### Make other (non-current) windows compact
 
 ```sh
-export TMUX_POWERLINE_COMPACT_INACTIVE=on
-```
-
-#### Make all windows compact
-
-```sh
-export TMUX_POWERLINE_COMPACT=on
+export TMUX_POWERLINE_COMPACT_OTHER=on
 ```
 
 ## Suggestions

@@ -68,10 +68,10 @@ disable_flag()
 # Support `tput Co` too?
 colors="$(tput colors)"
 
-if [ "${TMUX_POWERLINE_SHOW_FLAG}" = "on" ]; then
+if [ "${TMUX_POWERLINE_FLAG}" = "on" ]; then
     # Force enable flag
     enable_flag
-elif [ "${TMUX_POWERLINE_SHOW_FLAG}" = "off" ]; then
+elif [ "${TMUX_POWERLINE_FLAG}" = "off" ]; then
     # Force disable flag
     disable_flag
 else
@@ -82,54 +82,6 @@ else
     else
         disable_flag
     fi
-fi
-
-#
-# Compact mode
-#
-
-# $TMUX_POWERLINE_COMPACT = on|off
-# $TMUX_POWERLINE_COMPACT_CURRENT = on|off
-# $TMUX_POWERLINE_COMPACT_INACTIVE = on|off
-
-enable_compact_current()
-{
-    tmux_powerline_compact_current="on"
-}
-
-disable_compact_current()
-{
-    tmux_powerline_compact_current="off"
-}
-
-enable_compact_inactive()
-{
-    tmux_powerline_compact_inactive="on"
-}
-
-disable_compact_inactive()
-{
-    tmux_powerline_compact_inactive="off"
-}
-
-if [ "${TMUX_POWERLINE_COMPACT}" = "on" ]; then
-    enable_compact_current
-    enable_compact_inactive
-elif [ "${TMUX_POWERLINE_COMPACT}" = "off" ]; then
-    disable_compact_current
-    disable_compact_inactive
-fi
-
-if [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "on" ]; then
-    enable_compact_current
-elif [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "off" ]; then
-    disable_compact_current
-fi
-
-if [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "on" ]; then
-    enable_compact_inactive
-elif [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "off" ]; then
-    disable_compact_inactive
 fi
 
 #
@@ -176,7 +128,7 @@ tmux set-window-option -g window-status-current-fg black
 # Status bar window in background (not active)
 #
 
-if [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "on" ]; then
+if [ "${TMUX_POWERLINE_COMPACT_OTHER}" = "on" ]; then
     tmux set-window-option -g window-status-format "#[fg=colour236,nounderscore]${tmux_powerline_symbol_right_full}#[default,bold,nounderscore] #I${tmux_powerline_flag} #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
 else
     tmux set-window-option -g window-status-format "#[fg=colour236,nounderscore]${tmux_powerline_symbol_right_full}#[default,bold,nounderscore] #I${tmux_powerline_flag} #[fg=colour240,reverse]${tmux_powerline_symbol_right_full}#[default]#[bg=colour240]#[nounderscore] #[default]#[fg=colour231,bg=colour240]#W#[nounderscore] #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
