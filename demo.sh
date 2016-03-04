@@ -33,13 +33,22 @@ sed -i.bak "s/^\(tmux set-window-option -g status-right.*\)%b %d %a/\1${date}/" 
 sed -i.bak "s/^\(tmux set-window-option -g status-right.*\)%H:%M/\1${time}/" "$target"
 
 # Open windows.
-tmux new-session -d -s "Demo" -n "Normal" $SHELL
+tmux new-session -d -s "Demo" -n "Normal" "$SHELL"
 tmux set-option -t Demo base-index 1
-tmux new-window -t Demo:2 -n "Current" $EDITOR
-tmux new-window -t Demo:3 -n "Last" $SHELL
+tmux new-window -t Demo:2 -n "Current" "$EDITOR ; $SHELL"
+tmux new-window -t Demo:3 -n "Last" "$SHELL"
 tmux new-window -t Demo:4 -n "Activity/Silence" "tmux set-window-option -t Demo:4 monitor-silence 1 && $SHELL"
 tmux new-window -t Demo:5 -n "Bell" "sleep 1 && echo  && $SHELL"
 tmux new-window -t Demo:6 -n "Content" "tmux set-window-option -t Demo:6 monitor-content 'Content!' && sleep 1 && echo 'Content!' && $SHELL"
+#tmux new-window -t Demo -n "~/Projects"
+#tmux new-window -t Demo -n "vim .tmux.conf"
+#tmux new-window -t Demo -n "CMUS"
+#tmux new-window -t Demo -n "top"
+#tmux new-window -t Demo -n "WeeChat" "sleep 1 && echo  && $SHELL"
+#tmux new-window -t Demo -n ""
+#tmux new-window -t Demo -n "" "tmux set-window-option -t Demo:13 monitor-silence 1 && $SHELL"
+#tmux new-window -t Demo -n ""
+#tmux new-window -t Demo -n ""
 
 tmux select-window -t Demo:3
 tmux select-window -t Demo:2
