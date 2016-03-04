@@ -85,25 +85,6 @@ else
 fi
 
 #
-# Compact mode
-#
-
-# $TMUX_POWERLINE_COMPACT_CURRENT = on|off
-# $TMUX_POWERLINE_COMPACT_INACTIVE = on|off
-
-if [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "on" ]; then
-    tmux_powerline_compact_current="on"
-elif [ "${TMUX_POWERLINE_COMPACT_CURRENT}" = "off" ]; then
-    tmux_powerline_compact_current="off"
-fi
-
-if [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "on" ]; then
-    tmux_powerline_compact_inactive="on"
-elif [ "${TMUX_POWERLINE_COMPACT_INACTIVE}" = "off" ]; then
-    tmux_powerline_compact_inactive="off"
-fi
-
-#
 # Status bar background colour
 #
 
