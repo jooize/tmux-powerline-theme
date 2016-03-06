@@ -72,13 +72,13 @@ bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-
 
 Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply.
 
-#### Make current window compact
+#### Compact current window
 
 ```sh
 export TMUX_POWERLINE_COMPACT_CURRENT=on
 ```
 
-#### Make other (non-current) windows compact
+#### Compact other windows
 
 ```sh
 export TMUX_POWERLINE_COMPACT_OTHER=on
