@@ -36,13 +36,11 @@ Tmux Powerline theme
 
 All paths assume installation by Tmux Plugin Manager.
 
-```
-$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux
-```
+    $HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux
 
-### Enable Powerline symbols (optional)
+### Enable Powerline symbols
 
-*If you don't want Powerline symbols, only load the theme.*
+*If you don't want Powerline symbols, simply load the theme.*
 
 ```tmux
 #
@@ -56,12 +54,12 @@ if-shell ': ${TMUX_POWERLINE_SYMBOLS?}' '' 'set-environment -g TMUX_POWERLINE_SY
 bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/plugins/powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"'
 ```
 
-### List of Powerline symbols
+### Symbol alternatives
 
 | Option          | Explanation
 | --------------- | -----------
-| `powerline`     | Use the new Powerline font. (January 2013 or later)
-| `vim-powerline` | Use the old Powerline font from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
+| `powerline`     | Use the new Powerline symbols. (January 2013 or later)
+| `vim-powerline` | Use the old Powerline symbols from the now deprecated [Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline) project.
 | `unicode`       | Use Unicode symbols. *(default)*
 | `ascii`         | Use ASCII symbols.
 | `none`          | No symbols.
@@ -72,13 +70,13 @@ bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-
 
 Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply.
 
-#### Make current window compact
+#### Compact current window
 
 ```sh
 export TMUX_POWERLINE_COMPACT_CURRENT=on
 ```
 
-#### Make other (non-current) windows compact
+#### Compact other windows
 
 ```sh
 export TMUX_POWERLINE_COMPACT_OTHER=on
@@ -90,9 +88,15 @@ export TMUX_POWERLINE_COMPACT_OTHER=on
 export TMUX_POWERLINE_FLAG=on
 ```
 
+### Symbols
+
+```sh
+export TMUX_POWERLINE_SYMBOLS="powerline"
+```
+
 ## Suggestions
 
-### Use toggle key for symbols
+### Toggle key for symbols
 
 Switch between two sets of symbols with `^B P` by putting this in your `.tmux.conf`.
 
@@ -101,7 +105,7 @@ Switch between two sets of symbols with `^B P` by putting this in your `.tmux.co
 bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "powerline" ; run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"' 'set-environment -g TMUX_POWERLINE_SYMBOLS "unicode" ; run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"'
 ```
 
-### Use enable/disable keys for symbols
+### Enable and disable keys for symbols
 
 Add these lines to your `.tmux.conf` and replace the brackets with your preferred keys.
 
@@ -118,15 +122,6 @@ tmux run-shell "$HOME/.tmux/plugins/tmux-powerline-theme/powerline-theme.tmux"
 ```
 
 Or replace `tmux` with pressing `^B :` to use Tmux's command line.
-
-### Specify symbols in shell
-
-You can also specify preference in your shell before starting Tmux.  
-*Note: Must be done before Tmux is started or it won't have effect.*
-
-```sh
-export TMUX_POWERLINE_SYMBOLS="powerline"
-```
 
 ### Attach Tmux on device without Powerline font
 
