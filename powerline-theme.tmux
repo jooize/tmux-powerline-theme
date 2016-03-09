@@ -85,6 +85,12 @@ else
 fi
 
 #
+# Status bar foreground colour
+#
+
+tmux set-window-option -g status-fg white
+
+#
 # Status bar background colour
 #
 
