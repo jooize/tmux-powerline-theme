@@ -88,13 +88,12 @@ fi
 # Status bar foreground colour
 #
 
-tmux set-window-option -g status-fg white
 
 #
 # Status bar background colour
 #
 
-tmux set-window-option -g status-bg colour236 # Gray
+tmux set-window-option -g status-style fg=white,bg=colour236
 
 #
 # Status bar left side
@@ -126,9 +125,7 @@ else
     tmux set-window-option -g window-status-current-format "#[fg=colour236]${tmux_powerline_symbol_right_full}#[default,bold] #I${tmux_powerline_flag} #[fg=colour123,reverse]${tmux_powerline_symbol_right_full}#[default]#[bg=colour123] #W #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
 fi
 
-tmux set-window-option -g window-status-current-attr none
-tmux set-window-option -g window-status-current-bg colour33 # Green
-tmux set-window-option -g window-status-current-fg black
+tmux set-window-option -g window-status-current-style none,bg=colour33,fg=black
 
 #
 # Status bar window in background (not active)
@@ -141,9 +138,7 @@ else
 fi
 
 # Black on green
-tmux set-window-option -g window-status-attr none
-tmux set-window-option -g window-status-bg colour76 # Green
-tmux set-window-option -g window-status-fg black
+tmux set-window-option -g window-status-style none,bg=colour76,fg=black
 
 # Black on white
 #tmux set-window-option -g window-status-bg colour231
@@ -156,31 +151,16 @@ tmux set-window-option -g window-status-fg black
 # Status bar window last active (Tmux 1.8+)
 #
 
-tmux set-window-option -g window-status-last-attr none
-tmux set-window-option -g window-status-last-bg cyan
-tmux set-window-option -g window-status-last-fg black
+tmux set-window-option -g window-status-last-style none,bg=cyan,fg=black
 
 #
 # Status bar window with activity/silence (monitor-activity, monitor-silence)
 #
 
-tmux set-window-option -g window-status-activity-attr bold #,underscore
-tmux set-window-option -g window-status-activity-bg colour127 # Pink
-tmux set-window-option -g window-status-activity-fg black
+tmux set-window-option -g window-status-activity-style bold,bg=colour127,fg=black
 
 #
 # Status bar window with bell triggered
 #
 
-tmux set-window-option -g window-status-bell-attr bold #,underscore
-tmux set-window-option -g window-status-bell-bg red # Red is urgent
-tmux set-window-option -g window-status-bell-fg black
-
-#
-# Status bar window with content found (monitor-content) (Tmux <2.0)
-#
-
-tmux set-window-option -g window-status-content-attr bold #,underscore
-tmux set-window-option -g window-status-content-bg colour226 # Yellow because search highlighting usually is
-tmux set-window-option -g window-status-content-fg black
-
+tmux set-window-option -g window-status-bell-style bold,bg=red,fg=black
