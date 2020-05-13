@@ -14,6 +14,10 @@ Tmux Powerline theme
 
 - Doesn't check Tmux version before executing commands, resulting in error messages at startup. ([#2](https://github.com/jooize/tmux-powerline-theme/issues/2))
 
+## Alternatives
+
+- More powerful, but with [dependencies](https://powerline.readthedocs.io/en/latest/installation.html): https://github.com/powerline/powerline
+
 ## Install
 
 ### Tmux Plugin Manager (TPM)
@@ -25,7 +29,7 @@ Tmux Powerline theme
 ### Load from shell
 
 1. Save `powerline-theme.tmux` somewhere.
-2. Run in a shell: `source powerline-theme.tmux`
+2. Run in a shell: `sh powerline-theme.tmux`
 
 ### Manual install in `tmux.conf`
 
@@ -68,7 +72,7 @@ bind-key P if-shell 'test $(echo "${TMUX_POWERLINE_SYMBOLS}") = "unicode"' 'set-
 
 ### Compact mode
 
-Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterwards to apply.
+Environment variables. Run in shell either before starting Tmux or execute `powerline-theme.tmux` afterward to apply.
 
 #### Compact current window
 
@@ -145,4 +149,3 @@ EOF
 
 chmod +x "$HOME/Executables/TmuxAttachMobile.sh"
 ```
-
