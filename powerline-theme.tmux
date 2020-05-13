@@ -85,15 +85,10 @@ else
 fi
 
 #
-# Status bar foreground colour
+# Status bar style
 #
 
-
-#
-# Status bar background colour
-#
-
-tmux set-window-option -g status-style fg=white,bg=colour236
+tmux set-window-option -g status-style bg=colour236,fg=white
 
 #
 # Status bar left side
@@ -125,6 +120,7 @@ else
     tmux set-window-option -g window-status-current-format "#[fg=colour236]${tmux_powerline_symbol_right_full}#[default,bold] #I${tmux_powerline_flag} #[fg=colour123,reverse]${tmux_powerline_symbol_right_full}#[default]#[bg=colour123] #W #[fg=colour236,reverse]${tmux_powerline_symbol_right_full}"
 fi
 
+# colour33 is green
 tmux set-window-option -g window-status-current-style none,bg=colour33,fg=black
 
 #
@@ -141,11 +137,10 @@ fi
 tmux set-window-option -g window-status-style none,bg=colour76,fg=black
 
 # Black on white
-#tmux set-window-option -g window-status-bg colour231
-#tmux set-window-option -g window-status-fg black
+#tmux set-window-option -g window-status-style bg=colour231,fg=black
 
 # Green more alike non-256color
-#tmux set-window-option -g window-status-bg colour40
+#tmux set-window-option -g window-status-style bg=colour40
 
 #
 # Status bar window last active (Tmux 1.8+)
@@ -157,10 +152,20 @@ tmux set-window-option -g window-status-last-style none,bg=cyan,fg=black
 # Status bar window with activity/silence (monitor-activity, monitor-silence)
 #
 
+# colour127 is pink
 tmux set-window-option -g window-status-activity-style bold,bg=colour127,fg=black
 
 #
 # Status bar window with bell triggered
 #
 
+# red is urgent
 tmux set-window-option -g window-status-bell-style bold,bg=red,fg=black
+
+#
+# Status bar window with content found (monitor-content) (Tmux <2.0)
+#
+
+#tmux set-window-option -g window-status-content-attr bold #,underscore
+#tmux set-window-option -g window-status-content-bg colour226 # Yellow because search highlighting usually is
+#tmux set-window-option -g window-status-content-fg black
